@@ -6,10 +6,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Test {
-    private static String driver = "com.mysql.cj.jdbc.Driver";
-    private static String url = "jdbc:mysql://localhost:3306/db_online_course?serverTimeZone=UTC";
-    private static String user = "root";
-    private static String password = "123456";
+    private static final String driver = "com.mysql.cj.jdbc.Driver";
+    private static final String url = "jdbc:mysql://localhost:3306/db_online_course?serverTimeZone=UTC";
+    private static final String user = "root";
+    private static final String password = "123456";
 
     public static void main(String[] args) {
 
