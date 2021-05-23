@@ -32,7 +32,6 @@ public class TestTransaction {
             preparedStatement.setDouble(1, -100);
             preparedStatement.setInt(2, 2);
             preparedStatement.executeUpdate();
-            connection.commit();// 没有异常,提交事务
         } catch (Exception exception) {
             if (connection != null) {
                 try {
@@ -52,6 +51,7 @@ public class TestTransaction {
             }
             if (connection != null) {
                 try {
+                    connection.commit();// 提交事务
                     connection.close();
                 } catch (SQLException exception) {
                     exception.printStackTrace();
