@@ -5,6 +5,9 @@ CREATE TABLE `t_account` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
+INSERT INTO `t_account` VALUES (1, '张三', 1000.00);
+INSERT INTO `t_account` VALUES (2, '王五', 1000.00);
+
 CREATE TABLE `t_teacher` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `nickName` varchar(20) DEFAULT NULL,
