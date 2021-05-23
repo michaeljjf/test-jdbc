@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AccountDaoImpl implements AccountDao {
+
     @Override
     public int add(Account account) {
         int rows = 0;
