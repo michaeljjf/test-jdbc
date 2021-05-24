@@ -8,8 +8,9 @@ import java.sql.PreparedStatement;
 public class BaseDao {
     /**
      * 抽取非查询的公共部分
-     * @param sql
-     * @param args
+     *
+     * @param sql 执行的sql
+     * @param args 可变参数
      * @return
      */
     public int baseUpdate(String sql, Object... args) {
