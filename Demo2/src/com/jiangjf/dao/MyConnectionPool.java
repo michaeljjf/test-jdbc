@@ -1,17 +1,18 @@
 package com.jiangjf.dao;
 
 import com.jiangjf.util.DbUtil;
+import com.jiangjf.util.JdbcPropertiesUtil;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.LinkedList;
 
 public class MyConnectionPool {
-    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
+    private static final String DRIVER = JdbcPropertiesUtil.getValue("driver");
 
     private static LinkedList<Connection> pool = null;
-    private static int initSize = 2;
-    private static int maxSize = 3;
+    private static int initSize = Integer.valueOf(JdbcPropertiesUtil.getValue("initSize"));
+    private static int maxSize = Integer.valueOf(JdbcPropertiesUtil.getValue("maxSize"));
 
     static {
         try {

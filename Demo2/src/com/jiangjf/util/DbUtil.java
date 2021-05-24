@@ -13,9 +13,9 @@ public class DbUtil {
      * useServerPrepStmts：是否开启预编译
      * cachePrepStmts：是否启用预编译缓存
      */
-    private static final String URL = "jdbc:mysql://localhost:3306/db_test?serverTimeZone=UTC&characterEncoding=utf-8&rewriteBatchedStatements=true&useServerPrepStmts=true&cachePrepStmts=true";
-    private static final String USER = "root";
-    private static final String PASSWORD = "123456";
+    private static final String URL = JdbcPropertiesUtil.getValue("url");
+    private static final String USER = JdbcPropertiesUtil.getValue("user");
+    private static final String PASSWORD = JdbcPropertiesUtil.getValue("password");
 
     /**
      * 获取数据库连接
