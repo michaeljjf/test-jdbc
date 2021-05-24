@@ -15,7 +15,7 @@ public class BaseDao {
      */
     public int baseUpdate(String sql, Object... args) {
         int rows = 0;
-        Connection connection = DbUtil.getConnection();
+        Connection connection = MyConnectionPool.getConnection();
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement(sql);
@@ -27,7 +27,7 @@ public class BaseDao {
             exception.printStackTrace();
         } finally {
             DbUtil.closePreparedStatement(preparedStatement);
-            DbUtil.closeConnection(connection);
+            MyConnectionPool.returnConnection(connection);
         }
         return rows;
     }

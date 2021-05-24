@@ -2,6 +2,7 @@ package com.jiangjf.dao.impl;
 
 import com.jiangjf.dao.AccountDao;
 import com.jiangjf.dao.BaseDao;
+import com.jiangjf.dao.MyConnectionPool;
 import com.jiangjf.pojo.Account;
 import com.jiangjf.util.DbUtil;
 
@@ -28,7 +29,7 @@ public class AccountDaoImpl extends BaseDao implements AccountDao {
     @Override
     public Account getOneById(int id) {
         Account account = null;
-        Connection connection = DbUtil.getConnection();
+        Connection connection = MyConnectionPool.getConnection();
         PreparedStatement preparedStatement = null;
         String sql = "select id,name,money from t_account where id = ?";
         try {
@@ -44,7 +45,7 @@ public class AccountDaoImpl extends BaseDao implements AccountDao {
             exception.printStackTrace();
         } finally {
             DbUtil.closePreparedStatement(preparedStatement);
-            DbUtil.closeConnection(connection);
+            MyConnectionPool.returnConnection(connection);
         }
         return account;
     }
@@ -52,7 +53,7 @@ public class AccountDaoImpl extends BaseDao implements AccountDao {
     @Override
     public List<Account> getList() {
         List<Account> accountList = null;
-        Connection connection = DbUtil.getConnection();
+        Connection connection = MyConnectionPool.getConnection();
         PreparedStatement preparedStatement = null;
         String sql = "select id,name,money from t_account";
         try {
@@ -71,7 +72,7 @@ public class AccountDaoImpl extends BaseDao implements AccountDao {
             exception.printStackTrace();
         } finally {
             DbUtil.closePreparedStatement(preparedStatement);
-            DbUtil.closeConnection(connection);
+            MyConnectionPool.returnConnection(connection);
         }
         return accountList;
     }
